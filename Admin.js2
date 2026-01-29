@@ -1,0 +1,59 @@
+// Add new listing to Supabase
+document.getElementById("assetForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const listing = {
+    type: type.value,
+    title: title.value,
+    location: location.value,
+    price: price.value,
+    desc: desc.value,
+    active: false,          // Admin approves before showing publicly
+    created_at: new Date()  // Timestamp
+  };
+
+  const { data, error } = await supabase.from('listings').insert([listing]);
+
+  if(error) alert("Error: " + error.message);
+  else alert("Listing added! Approve to show on website.");
+  renderListings();
+});
+
+// Fetch all listings to admin dashboard
+async function renderListings(){
+  const { data: listings, error } = await supabase.from('listings').select('*');
+  const container = document.getElementById("listings");
+  container.innerHTML = "";
+
+  listings.forEach(l=>{
+    container.innerHTML += `
+      <div>
+        <b>${l.title}</b> (${l.type})<br>
+        ${l.location || ""}<br>
+        Status: ${l.active ? "LIVE" : "HIDDEN"}<br>
+        <button onclick="toggle('${l.id}')">${l.active ? "Hide" : "Approve"}</button>
+        <button onclick="removeItem('${l.id}')">Delete</button>
+      </div>
+    `;
+  });
+}
+
+// Approve / Hide listing
+async function toggle(id){
+  const { data, error } = await supabase
+    .from('listings')
+    .update({ active: true })
+    .eq('id', id);
+  renderListings();
+}
+
+// Delete listing
+async function removeItem(id){
+  const { data, error } = await supabase
+    .from('listings')
+    .delete()
+    .eq('id', id);
+  renderListings();
+}
+
+// Initial fetch
+renderListings();
