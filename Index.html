@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Private Luxury Access</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 3D Background -->
+<canvas id="bg"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">PRIVATE ACCESS</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#assets">Assets</a></li>
+    <li><a href="#concierge">Concierge</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#inquiry" class="btn">Private Inquiry</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section center">
+  <h1>PRIVATE ASSET ACCESS</h1>
+  <p>Cars · Property · Yachts · Jets</p>
+</section>
+
+<!-- ASSETS -->
+<section id="assets" class="section">
+  <h2>Curated Assets</h2>
+  <div class="grid"></div> <!-- Dynamic listings from admin -->
+</section>
+
+<!-- CONCIERGE -->
+<section id="concierge" class="section">
+  <h2>Private Concierge</h2>
+  <p>We discreetly source and arrange access to ultra-luxury assets worldwide.</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="section">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div>1️⃣ Submit Inquiry</div>
+    <div>2️⃣ Asset Verification</div>
+    <div>3️⃣ Private Viewing & Escrow</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <p>Invitation-only access to investment-grade assets for private clients. All listings are verified. Prices available on request.</p>
+</section>
+
+<!-- PRIVATE INQUIRY -->
+<section id="inquiry" class="section center">
+  <h2>Private Inquiry</h2>
+  <form id="inquiryForm">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email / Contact" required>
+    <select>
+      <option>Asset Type</option>
+      <option>Car</option>
+      <option>Property</option>
+      <option>Yacht / Jet</option>
+    </select>
+    <select>
+      <option>Estimated Budget</option>
+      <option>$500k – $1M</option>
+      <option>$1M – $5M</option>
+      <option>$5M+</option>
+    </select>
+    <button type="submit">Submit Confidential Request</button>
+  </form>
+</section>
+
+<!-- CHATBOT -->
+<div id="chatbot">
+  <div id="chatHeader">Private Concierge</div>
+  <div id="chatBody"></div>
+  <input id="chatInput" placeholder="Type here…" />
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
