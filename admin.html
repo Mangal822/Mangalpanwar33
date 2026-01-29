@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { background:#0b0b0b; }
+.admin { padding:80px 10%; color:#fff; }
+.admin h1,h2 { margin-bottom:20px; }
+.admin form { display:grid; gap:10px; max-width:500px; margin-bottom:40px; }
+.listings div { border:1px solid #333; padding:15px; margin-bottom:10px; }
+.badge { font-size:12px; opacity:0.6; }
+</style>
+</head>
+<body>
+
+<div class="admin">
+<h1>Admin Dashboard</h1>
+
+<form id="loginForm">
+  <input type="password" placeholder="Enter Admin Password" id="adminPass">
+  <button type="submit">Login</button>
+</form>
+
+<div id="dashboard" style="display:none;">
+
+<h2>Add Asset</h2>
+<form id="assetForm">
+  <select id="type">
+    <option>Car</option>
+    <option>Property</option>
+    <option>Yacht / Jet</option>
+  </select>
+  <input id="title" placeholder="Title" required>
+  <input id="location" placeholder="Location">
+  <input id="price" placeholder="Price (optional)">
+  <textarea id="desc" placeholder="Short Description"></textarea>
+  <button type="submit">Add Listing</button>
+</form>
+
+<h2>Listings</h2>
+<div class="listings" id="listings"></div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
