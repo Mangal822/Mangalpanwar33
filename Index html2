@@ -1,0 +1,19 @@
+document.getElementById("inquiryForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+
+  const inquiry = {
+    name: e.target[0].value,
+    email: e.target[1].value,
+    asset_type: e.target[2].value,
+    budget: e.target[3].value,
+    created_at: new Date()
+  };
+
+  const { data, error } = await supabase.from('inquiries').insert([inquiry]);
+
+  if(error) alert("Error submitting inquiry: " + error.message);
+  else {
+    alert("Inquiry submitted! Our concierge will contact you.");
+    e.target.reset();
+  }
+});
