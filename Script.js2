@@ -1,0 +1,21 @@
+// Load only approved listings for public site
+async function loadListings(){
+  const { data, error } = await supabase
+    .from('listings')
+    .select('*')
+    .eq('active', true); // Only show approved listings
+
+  const grid = document.querySelector(".grid");
+  grid.innerHTML = "";
+
+  data.forEach(d => {
+    grid.innerHTML += `
+      <div class="card">
+        <h3>${d.title}</h3>
+        <p>${d.type} · ${d.location || "Private Location"}</p>
+        <button onclick="openInquiry('${d.type}')">Request Private Viewing</button>
+      </div>
+    `;
+  });
+}
+loadListings();
