@@ -1,0 +1,28 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; color:#fff; background:black; }
+
+canvas { position:fixed; top:0; left:0; z-index:-1; }
+
+nav { display:flex; justify-content:space-between; padding:20px; position:fixed; width:100%; }
+nav ul { display:flex; gap:20px; list-style:none; }
+nav a { color:#fff; text-decoration:none; opacity:0.7; }
+nav a:hover { opacity:1; }
+.btn { border:1px solid #fff; padding:8px 14px; }
+
+.section { min-height:100vh; padding:120px 10%; }
+.center { text-align:center; }
+
+h1 { font-size:48px; letter-spacing:4px; }
+h2 { font-size:36px; margin-bottom:20px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+.card { border:1px solid rgba(255,255,255,0.2); padding:20px; }
+.card button { margin-top:15px; background:none; border:1px solid #fff; color:#fff; padding:8px; cursor:pointer; }
+
+form { max-width:400px; margin:auto; display:flex; flex-direction:column; gap:10px; }
+input, select, textarea { padding:10px; background:black; border:1px solid #444; color:white; }
+
+#chatbot { position:fixed; bottom:20px; right:20px; width:260px; background:#000; border:1px solid #333; }
+#chatHeader { padding:10px; border-bottom:1px solid #333; }
+#chatBody { height:200px; padding:10px; overflow:auto; font-size:14px; }
+#chatInput { width:100%; padding:8px; border:none; background:black; color:white; }
